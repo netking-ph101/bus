@@ -1,0 +1,117 @@
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF;
+    color: #333;
+  }
+
+  .container {
+    max-width: 90%;
+    margin: 10px auto;
+    padding: 20px 40px; /* 增加左右 padding 為箭頭預留空間 */
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  h1 {
+    text-align: center;
+    color: #0077cc;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+
+  /* 新增 route-container 來控制滾動區域 */
+.route-container {
+    position: relative;
+    margin: 0 -25px; /* 負邊距抵消 container 的 padding */
+    padding: 0 25px; /* 確保內容不會貼近邊緣 */
+    overflow: hidden; /* 防止箭頭超出範圍 */
+  }
+
+  .route {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 35px;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .route::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+  }
+
+  .route-item {
+    text-align: center;
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: bold;
+    color: #0077cc;
+    position: relative;
+    padding: 10px 15px;
+    background: #e9ecef;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    width: 100%;
+    min-width: 150px;
+  }
+  
+  .route-item:hover {
+  background: #0077cc;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+  .route-item:after {
+  content: "→";
+  font-size: 16px;
+  white-space: nowrap;
+  font-weight: bold;
+  color: #343a40;
+  position: absolute;
+  right: -25px; /* 增加箭頭距離 */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+  .route-item:last-child:after {
+    content: "";
+  }
+
+  /* 滾動陰影提示 */
+  .route-container:before,
+  .route-container:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .route-container:before {
+    left: 0;
+    background: linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+  }
+
+  .route-container:after {
+    right: 0;
+    background: linear-gradient(to left, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+  }
+
+  /* 只調整字體大小和箭頭 */
+@media (max-width: 767px) {
+  .route-item {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  .route-item:after {
+    font-size: 14px;
+    right: -20px;
+  }
+}

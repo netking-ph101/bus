@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Test1 </title>
+  <title>澎湖西嶼北環路線圖 </title>
   <link rel="stylesheet" href="/assets/css/styles.css" />
   <!-- bootstrap js -->
   <script async src="/assets/js/bootstrap.bundle.min.js"></script>
@@ -12,36 +12,34 @@
   <!-- apple torch icon -->
   <link rel="apple-touch-icon" href="/assets/images/apple-logo.jpg" />
   <!-- meta -->
-  <meta name="description" content="澎湖西嶼北環路線圖
-
-
-
+  <meta name="description" content="
   澎湖西嶼北環路線圖
   
-    中屯風車園區
-    瓦銅牛車體驗
-    後寮沙灘
-    通樑古榕樹
-    跨海大橋
-    合界濱海公路
-    竹灣大義宮
-    螃蟹博物館
-    小門鯨魚洞
-    二崁聚落古厝
-    大菓葉玄武岩
-    西台..." />
+    
+      
+        開台天后宮
+      
+        施公祠／萬軍井
+      
+        中央老街
+      
+        四眼井
+      
+        媽宮城／順承門
+      
+        外婆的澎湖..." />
   <link
     rel="canonical"
-    href="https://frinedlybus.ph101.tw/tests/test1.html"
+    href="http://localhost:4000/tests/test1.html"
   />
   <!-- og meta-->
-  <meta property="og:title" content="Test1" />
+  <meta property="og:title" content="澎湖西嶼北環路線圖" />
   <meta property="og:description" content="xxxx" />
   <meta
     property="og:image"
-    content="https://frinedlybus.ph101.tw/assets/images/1.jpg"
+    content="http://localhost:4000/assets/images/1.jpg"
   />
-  <meta property="og:url" content="https://frinedlybus.ph101.tw/tests/test1.html">
+  <meta property="og:url" content="http://localhost:4000/tests/test1.html">
 
 </head>
 
@@ -171,19 +169,53 @@
   </nav>
   </header>
   <main>
-    <title>澎湖西嶼北環路線圖</title>
+    <div class="container">
+  <h1 class="text-center mb-4">澎湖西嶼北環路線圖</h1>
+  <div class="route-container">
+    <div class="route">
+      
+        <div class="route-item">開台天后宮</div>
+      
+        <div class="route-item">施公祠／萬軍井</div>
+      
+        <div class="route-item">中央老街</div>
+      
+        <div class="route-item">四眼井</div>
+      
+        <div class="route-item">媽宮城／順承門</div>
+      
+        <div class="route-item">外婆的澎湖灣</div>
+      
+        <div class="route-item">篤行十村導覽</div>
+      
+        <div class="route-item">金龜頭砲台</div>
+      
+        <div class="route-item">觀音亭</div>
+      
+        <div class="route-item">開拓館</div>
+      
+        <div class="route-item">生活博物館</div>
+      
+        <div class="route-item">海洋資源館</div>
+      
+        <div class="route-item">海洋地資館</div>
+      
+    </div>
+  </div>
+</div>
+
 <style>
   body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa;
+    background-color: #FFFFFF;
     color: #333;
   }
 
   .container {
     max-width: 90%;
-    margin: 20px auto;
+    margin: 10px auto;
     padding: 20px;
     background: #ffffff;
     border-radius: 10px;
@@ -197,25 +229,41 @@
     font-size: 24px;
   }
 
+  .route-container {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 0 15px;
+  }
+
   .route {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 10px;
-    justify-items: center;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px 0;
     align-items: center;
+    /* 隱藏滾動條但保持功能 */
+    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+  }
+
+  .route::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
   }
 
   .route-item {
+    flex: 0 0 auto;
     text-align: center;
-    font-size: 14px; /* 字體大小 */
+    white-space: nowrap;
+    font-size: 14px;
     font-weight: bold;
     color: #0077cc;
     position: relative;
-    padding: 10px;
+    padding: 10px 20px;
     background: #e9ecef;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
   }
 
   .route-item:hover {
@@ -226,8 +274,9 @@
 
   .route-item:after {
     content: "→";
-    font-size: 16px; /* 箭頭大小 */
-    font-weight: bold; /* 箭頭加粗 */
+    font-size: 16px;
+    white-space: nowrap;
+    font-weight: bold;
     color: #343a40;
     position: absolute;
     right: -15px;
@@ -236,43 +285,44 @@
   }
 
   .route-item:last-child:after {
-    content: ""; /* 最後一個無箭頭 */
+    content: "";
   }
 
-  /* 手機排版為四列 */
-  @media (max-width: 767px) {
-    .route {
-      grid-template-columns: repeat(4, 1fr); /* 四列排版 */
-    }
+  /* 滾動陰影提示 */
+  .route-container:before,
+  .route-container:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    pointer-events: none;
+    z-index: 1;
+  }
 
+  .route-container:before {
+    left: 0;
+    background: linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+  }
+
+  .route-container:after {
+    right: 0;
+    background: linear-gradient(to left, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+  }
+
+  @media (max-width: 767px) {
     .route-item {
-      font-size: 12px; /* 縮小文字大小 */
+      font-size: 12px;
+      padding: 8px 16px;
     }
 
     .route-item:after {
-      font-size: 14px; /* 手機箭頭稍微縮小 */
+      font-size: 14px;
+      right: -12px;
     }
   }
 </style>
 
-<div class="container">
-  <h1>澎湖西嶼北環路線圖</h1>
-  <div class="route">
-    <div class="route-item">中屯風車園區</div>
-    <div class="route-item">瓦銅牛車體驗</div>
-    <div class="route-item">後寮沙灘</div>
-    <div class="route-item">通樑古榕樹</div>
-    <div class="route-item">跨海大橋</div>
-    <div class="route-item">合界濱海公路</div>
-    <div class="route-item">竹灣大義宮</div>
-    <div class="route-item">螃蟹博物館</div>
-    <div class="route-item">小門鯨魚洞</div>
-    <div class="route-item">二崁聚落古厝</div>
-    <div class="route-item">大菓葉玄武岩</div>
-    <div class="route-item">西台古堡</div>
-    <div class="route-item">漁翁島燈塔</div>
-  </div>
-</div>
 
   </main>
   <footer class="overflow-hidden pt-5 pb-0">
@@ -292,7 +342,7 @@
                             </h2>
 
                         </div>
-                        <p>安全、忠誠、機靈、保密、諮詢 、 24H 在線服務
+                        <p>安全、服務、高品質
                         </p>
                     </div>
 
@@ -357,19 +407,29 @@
                 </div>
             </div>
         </div>
-        <hr>
-    </div>
-</footer>
-<div class="container">
-    <div class="row d-flex flex-wrap justify-content-between">
-        <div class="col-12">
-            <div class=" text-center">
-                <p>© Copyright 2024 友善巴士遊澎湖. Design by <a
-                        href="https://line.me/ti/p/~0937214165"><b>Cantor Technology Co., Ltd</b></a>
-                </p>
+        <!-- <hr> -->
+
+        <div class="row d-flex flex-wrap justify-content-between">
+            <div class="col-12">
+                <div class=" text-center">
+                    <p>© Copyright 2024 友善巴士遊澎湖. Design by <a
+                            href="https://line.me/ti/p/~0937214165"><b>Cantor Technology Co., Ltd</b></a>
+                    </p>
+                </div>
             </div>
         </div>
+
+
+
+
+
+
+
+
     </div>
-</div>
+</footer>
+
+    
+
 </body>
 </html>
