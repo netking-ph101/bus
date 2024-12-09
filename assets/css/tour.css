@@ -37,6 +37,7 @@
     gap: 35px;
     justify-items: center;
     align-items: center;
+    overflow-x: hidden; /* 防止水平溢出 */
   }
 
   .route::-webkit-scrollbar {
@@ -58,7 +59,7 @@
     width: 100%;
     min-width: 150px;
   }
-  
+
   .route-item:hover {
   background: #0077cc;
   color: #ffffff;
@@ -103,15 +104,47 @@
     background: linear-gradient(to left, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
   }
 
-  /* 只調整字體大小和箭頭 */
-@media (max-width: 767px) {
-  .route-item {
-    font-size: 12px;
-    padding: 8px 12px;
+ /* 手機版特別設置 */
+ @media (max-width: 767px) {
+    .container {
+      max-width: 100%; /* 手機版使用全寬 */
+      padding: 15px; /* 縮小容器內邊距 */
+    }
+  
+    .route-container {
+      margin: 0 -10px; /* 縮小負邊距 */
+      padding: 0 10px; /* 縮小內邊距 */
+    }
+  
+    .route {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px; /* 縮小格線間距 */
+    }
+  
+    .route-item {
+      font-size: 12px;
+      padding: 8px 10px;
+      min-width: auto;
+      width: 100%;
+    }
+  
+    .route-item:after {
+      font-size: 14px;
+      right: -12px; /* 縮小箭頭距離 */
+    }
   }
-
-  .route-item:after {
-    font-size: 14px;
-    right: -20px;
+  
+  /* 超小螢幕設置 */
+  @media (max-width: 480px) {
+    .container {
+      padding: 10px; /* 更小的內邊距 */
+    }
+  
+    .route {
+      gap: 12px; /* 更小的格線間距 */
+    }
+  
+    .route-item {
+      padding: 6px 8px;
+    }
   }
-}
