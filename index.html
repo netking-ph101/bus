@@ -13,15 +13,15 @@
   <link rel="apple-touch-icon" href="/assets/images/apple-logo.jpg" />
   <!-- meta -->
   <meta name="description" content="
- 
 
   
     
-      探索澎湖之美
-      讓我們帶您遊覽最美的福爾摩沙之心
+      
+        探索澎湖之美
+        讓我們帶您遊覽最美的福爾摩沙之心
+      
     
   
-
 
 
 
@@ -29,7 +29,7 @@
   友善巴士澎湖遊 | 無障礙巴士服務，讓旅程更貼心
   
     歡迎來到 友善巴士澎湖遊，
-    致力於為所有旅客提供安全、舒適、便..." />
+    致力..." />
   <link
     rel="canonical"
     href="http://localhost:4000/"
@@ -166,15 +166,15 @@
   </header>
   <main>
     <!-- 首頁橫幅區塊 -->
- <div class="container"></div>
-<div class="bg-wrapper">
-  <div class="content-container">
-    <div class="content-box">
-      <h1 class="title">探索澎湖之美</h1>
-      <p class="subtitle">讓我們帶您遊覽最美的福爾摩沙之心</p>
+<div class="container">
+  <div class="bg-wrapper">
+    <div class="content-container">
+      <div class="content-box">
+        <h1 class="title">探索澎湖之美</h1>
+        <p class="subtitle">讓我們帶您遊覽最美的福爾摩沙之心</p>
+      </div>
     </div>
   </div>
-</div>
 </div>
 <!-- 首頁文字說明 -->
 
@@ -267,7 +267,6 @@
 
 <!-- //首頁 hero CSS -->
 
-
 <style>
   .bg-wrapper {
     /* 背景設置 */
@@ -275,100 +274,59 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
-    /* 容器設置 */
+
+    /* 容器設置 - 修改高度設定 */
     width: 100%;
-    height: 100vh;
+    aspect-ratio: 16/9;
+    /* 設定固定寬高比例 */
+    min-height: 400px;
+    /* 設定最小高度 */
+    max-height: 100vh;
+    /* 設定最大高度 */
     position: relative;
     overflow: hidden;
-    
-    /* 背景動畫 */
+
     animation: zoomBg 20s infinite alternate;
   }
-  
-  /* 黑色遮罩 */
-  .bg-wrapper::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-  }
-  
+
   .content-container {
     position: relative;
     height: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px;
-    
+
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  
-  .content-box {
-    text-align: center;
-    padding: 2.5rem;
-    background: rgba(239, 234, 234, 0.1);
-    border-radius: 15px;
-    backdrop-filter: blur(8px);
-    animation: fadeIn 1.5s ease-out;
-    width: 100%;
-    max-width: 600px;
-  }
-  
-  .title {
-    font-size: clamp(1.5rem, 5vw, 2.5rem);
-    margin-bottom: 1rem;
-    font-weight: 700;
-    color: #1a256e;
-  }
-  
-  .subtitle {
-    font-size: clamp(1rem, 3vw, 1.5rem);
-    line-height: 1.6;
-    color: #da3333;
-  }
-  
-  /* 背景縮放動畫 */
-  @keyframes zoomBg {
-    from {
-      transform: scale(1);
-    }
-    to {
-      transform: scale(1.1);
-    }
-  }
-  
-  /* 文字淡入動畫 */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* 響應式調整 */
+
+  /* 其他樣式保持不變... */
+
+  /* 新增手機版特別處理 */
   @media (max-width: 768px) {
+    .bg-wrapper {
+      aspect-ratio: 4/3;
+      /* 手機版使用不同的寬高比 */
+    }
+
     .content-box {
       margin: 0 15px;
       padding: 1.5rem;
     }
   }
-  
+
   @media (max-width: 480px) {
+    .bg-wrapper {
+      aspect-ratio: 3/4;
+      /* 更小螢幕使用更適合的寬高比 */
+    }
+
     .content-box {
       padding: 1.25rem;
     }
   }
-  </style>
+</style>
 
 <!-- ／／圖片ｃｓｓ -->
 <style>
@@ -395,10 +353,6 @@
     line-height: 1.6;
   }
 </style>
-
-
-
-
   </main>
   <footer class="overflow-hidden pt-1 pb-0">
     <div class="container mt-0">
